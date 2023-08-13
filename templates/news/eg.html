@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0" nonce="qAHasQ26"></script>
+  </head>
+  
+  
+<div class="row my-4 ml-4 mr-4 bg-dark">
+	<div class="col-md-12">
+		<div class="flex p-1" style="background-color: #5B2A00;">
+			<h3 style="color: #F57E1F;">{{ news.title}}</h3>
+		</div>
+	</div>
+		<div class="col-md-8 mt-3">
+			<div class="card mb-3 mt-5 shadow" style="background-color: black">
+                <img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+			  <div class="card-body" style="color: #F57E1F; font-size: larger;">
+			    <h5 class="card-title" style="color: #F57E1F; font-weight: 200;">{{news.title}}</h5>
+			    <hr/>
+			    <p class="card-text" style="color: #F57E1F;">{{news.body | safe}}</p>
+			  </div>
+			  <div class="card-footer">
+			  	Related <a href="/category/{{news.category.id}}">{{news.category.title}}</a>
+				 
+			  </div>
+			</div>			  
+		</div>
+		<!-- Related News -->
+		<div class="col-md-4">
+			<h3 class="mb-3 border-bottom pb-1" style="color: #F57E1F;">Related News</h3>
+			<!-- Category Box -->
+				{% for news in related_news %}
+				<a href="/detail/{{news.id}}"></a>
+				<div class="card mb-3 shadow" style="background-color: black;">
+					<img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+				<div class="card-body">
+					<h5 class="card-title" style="color: #F57E1F;">{{news.title}}</h5>
+					<hr/>
+					<p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+				</div>
+				</div>
+			</a>
+				{% endfor %}	
+			
+		</div>
+		<div class="fb-share-button" data-href="/detail/{{news.id}}" data-layout="button" data-size="large">
+			Share on Facebook
+		  </div>
+		
+	</div>
+
+
+{% endblock %}

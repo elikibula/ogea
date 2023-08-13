@@ -1,0 +1,51 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+  }
+  
+  span {
+    font-size: 80px;
+    color: white;
+    -webkit-animation: texto 4s infinite alternate-reverse;
+    animation: texto 4s infinite alternate-reverse;
+    
+  }
+  .banner {
+    width: 960px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    -webkit-animation: example 4s infinite alternate-reverse; /* Safari 4.0 - 8.0 */
+    animation: example 4s infinite alternate-reverse;
+    
+  }
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
+  
+  @-webkit-keyframes texto {
+    0% {visibility: hidden;transform: rotateY(180deg);}
+    40% {visibility: hidden;}
+    50% {}
+    100% {letter-spacing: 80px;}
+  }
+  
+  /* Standard syntax */
+  @keyframes example {
+    0%   {background-color: black; }
+    100% {background-color: grey; }
+  }
+  
+  @keyframes texto {
+    0% {visibility: hidden;transform: rotateY(180deg);}
+    40% {visibility: hidden;}
+    50% {}
+    100% {letter-spacing: 80px;}
+  }

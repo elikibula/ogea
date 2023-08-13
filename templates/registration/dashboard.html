@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row my-3 ml-4 mr-4">
+    <div class="col-md-12 mobile-hide">
+		<div class="card shadow mr-3 mobile-hide" style="background-color: #000000;">
+			<h3 class="ml-2" style="color: #F57E1F;">YOUR FNRL DATA HUB</h3>
+		</div>
+	</div>
+    <div class="col-md-12 col-lg-12 col-xlg-3 mt-3">
+        <div class="card card-hover">
+            <div class="box bg-info text-center">
+                <h3 class="text-white">Total Participants in the FNRL</h3>
+                <h1 class="text-white">{{ total_count }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title mt-3">Designation</h4>
+    </div>
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-hover">
+            <div class="box text-center" style="background-color: #F57E1F;">
+                <h5 class="font-light text-black"><i class="mdi mdi-account-multiple"></i></h5>
+                <h5 class="text-black">Coach Grade-1</h5>
+                <h5 class="text-black">{{ coach_grade_1_count }}</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-hover">
+            <div class="box text-center" style="background-color: #F57E1F;">
+                <h5 class="font-light text-black"><i class="mdi mdi-account-multiple"></i></h3>
+                <h5 class="text-black">Coach Grade-2</h5>
+                <h5 class="text-black">{{ coach_grade_2_count }}</h5>
+            </div>
+        </div>
+    </div>
+     <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-hover">
+            <div class="box text-center" style="background-color: #F57E1F;">
+                <h5 class="font-light text-black"><i class="mdi mdi-account-multiple"></i></h5>
+                <h5 class="text-black">Coach Grade-A</h5>
+                <h5 class="text-black">{{ coach_grade_a_count }}</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-hover">
+            <div class="box text-center" style="background-color: #F57E1F;">
+                <h5 class="font-light text-black"><i class="mdi mdi-account-multiple"></i></h5>
+                <h5 class="text-black">Sports Trainer-1</h5>
+                <h5 class="text-black">{{ sports_trainer_grade_1_count }}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3 col-xlg-3 mt-3">
+        <div class="card card-hover">
+            <div class="box text-center" style="background-color: #F57E1F;">
+                <h5 class="font-light text-black"><i class="mdi mdi-account-multiple"></i></h5>
+                <h5 class="text-black">Volunteers</h5>
+                <h5 class="text-black">{{ volunteer_count }}</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3 mt-3">
+        <div class="card card-hover">
+            <div class="box text-center" style="background-color: #F57E1F;">
+                <h5 class="font-light text-black"><i class="mdi mdi-account-multiple"></i></h3>
+                <h5 class="text-black">Match Officials</h5>
+                <h5 class="text-black">{{ match_official_count }}</h5>
+            </div>
+        </div>
+    </div>
+     <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3 mt-3">
+        <div class="card card-hover">
+            <div class="box text-center" style="background-color: #F57E1F;">
+                <h5 class="font-light text-black"><i class="mdi mdi-account-multiple"></i></h5>
+                <h5 class="text-black">Team Officials</h5>
+                <h5 class="text-black">{{ team_official_count }}</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3 mt-3">
+        <div class="card card-hover">
+            <div class="box text-center" style="background-color: #F57E1F;">
+                <h5 class="font-light text-black"><i class="mdi mdi-account-multiple"></i></h5>
+                <h5 class="text-black">Player</h5>
+                <h5 class="text-black">{{ player_count }}</h5>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+
+

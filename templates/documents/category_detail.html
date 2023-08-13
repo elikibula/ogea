@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row my-3 ml-3 mr-3">
+    <div class="col-md- mobile-hide">
+        <div class="card shadow mr-3 mobile-hide" style="background-color: #000000; font-family: Barlow;">
+            <h3 class="ml-2" style="color: #F57E1F;">{{ category.name }}</h3>
+        </div>
+    </div>
+    <div class="col-md-8 mt-3">
+        <div class="card mb-3 shadow pl-4 py-4 pr-4 mt-3" style="font-family: Barlow;">
+            {% if category %}
+                <h4>Subcategories:</h4>
+                {% for subcategory in category.subcategory_set.all %}
+                    <a href="{% url 'documents:subcategory_detail' subcategory.id %}" class="btn btn-secondary">{{ subcategory.name }}</a>
+                {% empty %}
+                    <p>No subcategories available for this category.</p>                                                                                                                                                            
+                {% endfor %}
+                {% else %}
+                    <p>You are not authorized to view this category.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-4 mt-3">
+        <div class="card mb-3 shadow pl-4 py-4 pr-4">
+            <button type="button" class="btn btn-dark mt-2"><a href="{% url 'documents:upload_document' %}">Upload Document</a></button>
+        </div>
+        <div class="card mb-3 shadow pl-4 py-4 pr-4" style="font-family: Barlow;">
+            <h5 class="">DOCUMENT CATEGORIES</h5>
+            <ul class="list-group mt-3">
+                {% for category in categories|dictsort:'name' %}
+                <li class="list-group-item">
+                    <a href="#">{{ category.name }}</a>
+                    {% if category.subcategory_set.all %}
+                    <ul class="list-group mt-2">
+                        {% for subcategory in category.subcategory_set.all %}
+                        <li class="list-group-item">
+                            <a href="{% url 'documents:subcategory_detail' subcategory.id %}" class="btn btn-secondary btn-block">{{ subcategory.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No subcategories available.</p>
+                    {% endif %}
+                </li>
+                {% empty %}
+                <li class="list-group-item">No categories available.</li>
+                {% endfor %}
+            </ul> 
+         </div>         
+    </div>     
+</div>
+{% endblock %}

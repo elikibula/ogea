@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row my-3 ml-3 mr-3">
+  <div class="col-md-12 mobile-hide">
+    <div class="card shadow mr-3 mobile-hide" style="background-color: #000000; font-family: Barlow;">
+      <h3 class="ml-2" style="color: #F57E1F;">DOCUMENT CATEGORIES/</h>
+    </div>
+  </div>
+  <div class="col-md-12 mt-3">
+    <div class="card mb-3 shadow pl-4 py-4 pr-4">
+      <div class="row">
+        {% for category in categories|dictsort:'name' %}
+          <div class="col-md-3">
+            <a href="#" class="btn btn-dark btn-block my-2">{{ category.name }}</a>
+            {% if category.subcategory_set.all %}
+              {% for subcategory in category.subcategory_set.all %}
+                <div class="ml-3">
+                  <a href="{% url 'documents:subcategory_detail' subcategory.id %}" class="btn btn-secondary btn-block my-2">{{ subcategory.name }}</a>
+                </div>
+              {% endfor %}
+            {% else %}
+              <p>No subcategories available.</p>
+            {% endif %}
+          </div>
+        {% empty %}
+          <p>No categories available.</p>
+        {% endfor %}
+      </div>
+    </div>      
+  </div>
+</div>
+{% endblock %}

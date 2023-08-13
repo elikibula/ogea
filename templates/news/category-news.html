@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load custom_filter %}
+{% block content %}
+<div class="row my-4 ml-4 mr-4">
+	<div class="col-md-12">
+			<div class="flex p-1" style="background-color: #5B2A00;"">
+				<h3 style="color: #F57E1F;">{{category.title}}</h>
+			</div>
+			{% for news in all_news %}
+			<a href="/detail/{{news.id}}">
+			<div class="card mb-4 mt-3 shadow">
+			<div class="row no-gutters">
+				<div class="col-md-3">
+					<img src="/media/{{news.image}}" class="card-img-top mt-3" alt="{{news.title}}">
+				</div>
+				<div class="col-md-8">
+				<div class="card-body">
+					<h5 class="card-title">{{news.title}}</h5>
+					<p class="card-text">{{news.body |truncate_words:50 | safe}}</p>
+					<p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+				</div>
+				</div>
+			</div>
+			</div>
+			</a>
+			{% endfor %}
+	</div>
+</div>
+{% endblock %}

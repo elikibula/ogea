@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row my-2 ml-2 mr-2 bg-light">
+    <div class="col-md-12">
+        <div class="flex p-1 my-2" style="background-color: #000;">
+            <h3 class="ml-2" style="color: #F57E1F; text-align:center; font-family: Barlow;">{{ news.title }}</h3>
+        </div>
+    </div>
+    <div class="col-md-8 mt-3">
+        <div class="card mb-3 mt-5 shadow" style="background-color: black">
+            <img src="/media/{{ news.image }}" class="card-img-top" alt="{{ news.title }}">
+            <div class="card-body" style="color: #ffffff; font-size: larger;">
+                <h5 class="card-title" style="color: #F57E1F; font-weight: 200; font-family: Barlow;">{{ news.title }}</h5>
+                <hr/>
+                <p class="card-text" style="color: #ffffff;">{{ news.body | linebreaks | safe }}</p>
+            </div>
+            <div class="card-footer" style="color: #F57E1F;">
+                Related <a href="/category/{{ news.category.id }}">{{ news.category.title }}</a>
+                <div class="fb-share-button" data-href="/detail/{{ news.id }}" data-layout="button_count"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Related News -->
+    <div class="col-md-4">
+        <h3 class="mb-3 border-bottom pb-1" style="color: #F57E1F; font-family: Barlow;">Related News</h3>
+        <!-- Category Box -->
+        {% for news in related_news %}
+            <a href="/detail/{{ news.id }}"></a>
+            <div class="card mb-3 shadow" style="background-color: black;">
+                <img src="/media/{{ news.image }}" class="card-img-top" alt="{{ news.title }}">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #F57E1F; font-family: Barlow;">{{ news.title }}</h5>
+                    <hr/>
+                    <p class="card-text"><a href="/detail/{{ news.id }}" class="btn btn-sm btn-primary">Read Full</a></p>
+                </div>
+            </div>
+            </a>
+        {% endfor %} 
+    </div>
+</div>
+<script>
+    window.fbAsyncInit = function() {
+  FB.init({
+    appId: '1231385624248397',
+    xfbml: true,
+    version: 'v12.0'
+  });
+
+  // Set the data-href attribute dynamically
+  var newsId = "{{ news.id }}";  // Replace with your actual template syntax or variable
+  var shareButton = document.querySelector('.fb-share-button');
+  if (shareButton) {
+    shareButton.setAttribute('data-href', '/detail/' + newsId);
+    FB.XFBML.parse(shareButton);
+  }
+
+  // Share button click event
+  shareButton.addEventListener('click', function() {
+    FB.ui({
+      method: 'share',
+      href: '/detail/' + newsId,
+      quote: "{{ news.title }}"
+    });
+  });
+};
+
+
+  </script>
+  
+
+{% endblock %}

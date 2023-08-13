@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row my-3 ml-3 mr-3">
+    <div class="col-md-12 my-3">
+      <div class="card mb-3 shadow hover-effect pl-3 py-3 pr-3">
+        <h3 class="fw-bold">My Profile Dashboard </h3> 
+              <h4>Bula vinaka, {{ user.username }}</h4>
+      </div>
+    </div>
+</div>
+<div class="row my-3 ml-3 mr-3">
+    <div class="col-md-4">
+      <div class="card mb-3 shadow hover-effect pl-3 py-3 pr-3">
+        <h4> {{ user.first_name }} , malo a yaco mai!</h4> 
+        {% if request.user.is_staff %}
+        
+        <a class="btn btn-dark mt-2" href="{% url 'account_logout' %}">Logout</a>
+
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-3 shadow hover-effect pl-3 py-3 pr-3">
+        <h4> {{ user.first_name }} , a omu Komiti ni Veivakatorocaketaki Documents</h4> 
+        <a class="btn btn-dark" href="{% url 'documents:document_list' %}">Document Categories</a>
+        <a class="btn btn-dark mt-2" href="{% url 'documents:upload_document' %}">Upload Document</a>           
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-3 shadow hover-effect pl-3 py-3 pr-3">
+        <h4> {{ user.first_name }} , Veika Tale Eso</h4> 
+        <a class="btn btn-dark" href="#">Veika Tale Eso</a>
+        <a class="btn btn-dark mt-2" href="#">Veika Tale Eso</a>           
+      </div>
+    </div>
+</div>
+{% endblock %}

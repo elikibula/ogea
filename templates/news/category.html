@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row my-4 ml-4 mr-4">
+	<div class="col-md-12">
+		<div class="flex p-1" style="background-color: #5B2A00;">
+			<h3 style="color: #F57E1F;">{{cat.title}}</h3>
+		</div>
+	</div>
+				<!-- Category Box -->
+			{% for cat in cats %}
+			<div class="col-md-4 mt-3">
+				<a href="category/{{cat.id}}">
+				<div class="card mb-3 shadow">
+				<img src="/media/{{cat.category_image}}" class="card-img-top" alt="{{cat.title}}">
+				<div class="card-body">
+					<h5 class="card-title">{{cat.title}}</h5>
+					<hr/>
+					<p class="card-text"><a href="category/{{cat.id}}" class="btn btn-sm btn-primary">Related</a></p>
+				</div>
+				</div>
+				</a>
+			</div>
+			{% endfor %}
+		
+</div>	
+{% endblock %}

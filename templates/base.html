@@ -1,0 +1,171 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>The official website for Ogea Village</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="To keep up to date with FNRL news, rugby league games, draws, ladder and other relevant information.">
+
+       <!-- Open Graph meta tags for Facebook sharing -->
+        <meta property="og:url" content="https://www.fijibati.com/detail/{{ news.id }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{{ news.title }}" />
+        <meta property="og:description" content="Fiji Bati" />
+        <meta property="og:image" content="/media/{{ news.image }}" />           
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0" nonce="qAHasQ26"></script>
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/card.css' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/images/favicon1.jpg' %}">
+
+        <script src="{% static 'js/card.js' %}"></script>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/popper.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        
+    </head>
+    <body>
+		<div class="wrapper">
+		<div class="wrapper">
+			<nav id="sidebar">
+				<div class="p-4 pt-3">
+                    <a href="/" class="img logo rounded-circle mb-5"><img src="{% static 'media/images/logo1.png' %}" style="margin-bottom: -5px;"></a>
+                        <ul class="list-unstyled components my-5">
+                            <li {% if request.path == '/' %}class="active"{% endif %}>
+                                <a href="{% url 'home' %}">HOME</a>       
+                            </li>
+                            <li>
+                                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">TOKATOKA</a>
+                                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                                            
+                                        <li {% if request.path == '#' %}class="active"{% endif %}>
+                                            <a href="#">Tubesara</a>
+                                        </li>
+                                        <li {% if request.path == '#' %}class="active"{% endif %}>
+                                                <a href="#">Mata</a>
+                                        </li>
+                                        <li {% if request.path == '#' %}class="active"{% endif %}>
+                                                <a href="#">Tutu</a>
+                                        </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <a href="#">KOMITI</a>       
+                            </li>
+                            <li>
+                                <a href="#">LOTU</a>       
+                            </li>
+                            <li>
+                                <a href="#">CO-OP</a>       
+                            </li>
+                            <li>
+                                <a href="#">BA-NI-UA</a>       
+                            </li>
+                            <li>
+                                <a href="#">VULI</a>       
+                            </li>
+                            <li>
+                                <a href="#">NAKORO</a>       
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li {% if request.path == 'logout' %}class="active"{% endif %}>
+                                <a href="{% url 'profile' %}">MY DASHBOARD</a>
+                            </li>
+                            <li {% if request.path == 'logout' %}class="active"{% endif %}>
+                                <a href="{% url 'account_logout' %}">LOGOUT</a>
+                            </li>
+                            {% else %}
+                            <li {% if request.path == 'login' %}class="active"{% endif %}>
+                                <a href="{% url 'account_login' %}">LOGIN</a>
+                            </li>
+                            {% endif %}
+                           
+	            </div>
+    	    </nav>
+            
+
+                <!-- Page Content  -->
+            <div class="content" style="background-color: #224088; height: 100vh;">
+                <nav class="navbar navbar-expand-lg navbar-light  desktop-hide">
+                      <button type="button" id="sidebarCollapse" class="btn">
+                    
+                            <a href="/"><img src="#" class="logo" alt="Logo"></a>
+                  
+                      </button>
+                      <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <i class="fa fa-bars"></i>
+                      </button>
+          
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li {% if request.path == '/' %}class="active"{% endif %}>
+                                <a href="#">HOME</a>       
+                            </li>
+                            <li>
+                                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">TOKATOKA</a>
+                                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                                            
+                                        <li {% if request.path == '#' %}class="active"{% endif %}>
+                                            <a href="#">Tubesara</a>
+                                        </li>
+                                        <li {% if request.path == '#' %}class="active"{% endif %}>
+                                                <a href="#">Mata</a>
+                                        </li>
+                                        <li {% if request.path == '#' %}class="active"{% endif %}>
+                                                <a href="#">Tutu</a>
+                                        </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <a href="#">KOMITI</a>       
+                            </li>
+                            <li>
+                                <a href="#">LOTU</a>       
+                            </li>
+                            <li>
+                                <a href="#">CO-OP</a>       
+                            </li>
+                            <li>
+                                <a href="#">BA-NI-UA</a>       
+                            </li>
+                            <li>
+                                <a href="#">VULI</a>       
+                            </li>
+                            <li>
+                                <a href="#">NAKORO</a>       
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li {% if request.path == 'logout' %}class="active"{% endif %}>
+                                <a href="{% url 'profile' %}">MY DASHBOARD</a>
+                            </li>
+                            <li {% if request.path == 'logout' %}class="active"{% endif %}>
+                                <a href="{% url 'account_logout' %}">LOGOUT</a>
+                            </li>
+                            {% else %}
+                            <li {% if request.path == 'login' %}class="active"{% endif %}>
+                                <a href="{% url 'account_login' %}">LOGIN</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                      </div>
+                  
+                  </nav>
+
+                        {% block content %}{% endblock content %}
+                <hr/>
+                         
+	        </div> 
+        </div> 
+    </body>
+</html>

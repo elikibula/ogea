@@ -1,0 +1,180 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Fiji National Rugby League</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'bs4/bootstrap.min.css' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'jquery.min.js' %}"></script>
+	<script src="{% static 'bs4/bootstrap.min.js' %}"></script>
+  
+
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(media/images/logo.png);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href="#">NEWS</a>
+	          </li>
+            <li>
+	            <a href="#">ABOUT US</a>
+	          </li>
+	          <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">DRAW</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">MATCH SCORE</a>
+                </li>
+                <li>
+                    <a href="#">ROUNDS</a>
+                </li>
+                <li>
+                    <a href="#">TEAMS</a>
+                </li>
+                <li>
+                  <a href="#">REMINDER</a>
+              </li>
+              </ul>
+	          </li>
+	          <li>
+              <a href="#">LADDER</a>
+	          </li>
+	          <li>
+              <a href="#">PLAYERS</a>
+	          </li>
+            <li>
+	            <a href="#">MEMBERSHIP</a>
+	          </li>
+            <li>
+	            <a href="#">MORE</a>
+	          </li>
+	        </ul>
+
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  FNRL Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed <i class="icon-heart" aria-hidden="true"></i> by <a href="http://lixtronics.pythonanywhere.com/" target="_blank">lixtronics</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	        </div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <h2 class="mb-4">Fiji National Rugby League</h2>
+		<div>
+			<!-- featured news -->
+			<div class="row my-4">
+			<div class="col-md-4">
+				<div class="card mb-3 shadow">
+					<img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+					<div class="card-body">
+						<h5 class="card-title">{{news.title}}</h5>
+						<hr/>
+						<p class="card-text"><a href="#" class="btn btn-sm btn-primary">Read Full</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-3 shadow">
+					<img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+					<div class="card-body">
+						<h5 class="card-title">{{news.title}}</h5>
+						<hr/>
+						<p class="card-text"><a href="#" class="btn btn-sm btn-primary">Read Full</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-3 shadow">
+					<img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+					<div class="card-body">
+						<h5 class="card-title">{{news.title}}</h5>
+						<hr/>
+						<p class="card-text"><a href="#" class="btn btn-sm btn-primary">Read Full</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-3 shadow">
+					<img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+					<div class="card-body">
+						<h5 class="card-title">{{news.title}}</h5>
+						<hr/>
+						<p class="card-text"><a href="#" class="btn btn-sm btn-primary">Read Full</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-3 shadow">
+					<img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+					<div class="card-body">
+						<h5 class="card-title">{{news.title}}</h5>
+						<hr/>
+						<p class="card-text"><a href="#" class="btn btn-sm btn-primary">Read Full</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-3 shadow">
+					<img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+					<div class="card-body">
+						<h5 class="card-title">{{news.title}}</h5>
+						<hr/>
+						<p class="card-text"><a href="#" class="btn btn-sm btn-primary">Read Full</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+   
+</html>

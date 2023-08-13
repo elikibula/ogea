@@ -1,0 +1,93 @@
+{% load static %}
+
+{% block html %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Fiji National Rugby League</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<!--<link rel="stylesheet" href="{% static 'bs4/bootstrap.min.css' %}"> -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'jquery.min.js' %}"></script>
+	<script src="{% static 'bs4/bootstrap.min.js' %}"></script> 
+  
+
+  </head>
+    <body>
+            
+            <div class="wrapper d-flex align-items-stretch">
+                <nav id="sidebar">
+                    <div class="p-4 pt-5">
+                            <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(media/images/logo.png);"></a>
+                        <ul class="list-unstyled components mb-5">
+                        <li class="active">
+                            <a href="#">NEWS</a>
+                        </li>
+                        <li>
+                            <a href="#">ABOUT US</a>
+                        </li>
+                        <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">DRAW</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#">MATCH SCORE</a>
+                            </li>
+                            <li>
+                                <a href="#">ROUNDS</a>
+                            </li>
+                            <li>
+                                <a href="#">TEAMS</a>
+                            </li>
+                            <li>
+                            <a href="#">REMINDER</a>
+                        </li>
+                        </ul>
+                        </li>
+                        <li>
+                        <a href="#">LADDER</a>
+                        </li>
+                        <li>
+                        <a href="#">PLAYERS</a>
+                        </li>
+                        <li>
+                            <a href="#">MEMBERSHIP</a>
+                        </li>
+                        <li>
+                            <a href="#">MOREEEEE</a>
+                        </li>
+                        </ul>
+
+                            <div class="footer">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                        FNRL Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed <i class="icon-heart" aria-hidden="true"></i> by <a href="http://lixtronics.pythonanywhere.com/" target="_blank">lixtronics</a>
+                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    
+                            </div>
+                   
+                </div>
+            </nav>
+
+            <!-- Page Content  -->
+        
+            </div>
+            </nav>
+       {% block content %} 
+       <div>
+        {% include 'footer.html' %}
+       </div>  
+       
+       {% endblock %}
+   
+</html>
+{% endblock html %}

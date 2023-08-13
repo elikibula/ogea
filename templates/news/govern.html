@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row my-3 ml-4 mr-4">
+      <div class="col-md-12">
+            <div class="card mb-3 shadow pl-4 py-4 pr-4">
+                  <h3 class="fw-bold">Governance</h3> 
+                        <h4>The Fiji National Rugby League Ltd is the single controlling body and administrator of the Game.
+                  The Fijian government recognition of the sport in 1992 gave way for the formal administration of the sport by an executive committee under the Fiji National Rugby League.
+                  The formation of the Fiji National Rugby League Ltd in September of 1998 was an historic opportunity to streamline Rugby League's governance structures and to provide a single point for all strategic direction.
+                  <br>
+                  <br>In steering the strategic direction of the game, the league ensures that game maintains the highhest level of professionalism. The enthusiasm of the twenty-two FNRL Vodafone Premiership teams, the history and heritage of the Fiji Bati, the unrivalled excitement of Vanua State of Origin, the grassroots enthusiasm of many regular competition participants and the unbridled fun and opportunity that comes to those in the community each year who find Rugby League through school visits, player appearances, matches and respect and social inclusion programs are coordinated through the one independent body.
+                  <br>
+                  <br>Chaired by Rear Admiral Viliame Naupoto, the Board of Directors brings together a uniquely qualified array of business and sporting leaders who act as trustees of the game. Together they work with the league's administrative executive, to foster, develop, and grow the game and provide adequate funding for Rugby League at all levels.
+                  <br>
+                  <br>The Board of Directors is governed by the company's article and a board charter congruent to the governance manual. The charter assists the corporation’s leadership in delivering good governance; documents the policies that the board has decided upon to meet its legal and other responsibilities; serves as a reminder for the board of the legal framework within which it operates; is a point of reference for disputes; serves as an induction tool for new directors and senior managers; greatly assists in establishing effective operating procedures for a board; and develops of a shared understanding of the board’s role throughout the organisation.
+                  <br>
+                  <br>Rugby League's honorary role of Patron is  a celebrated office of the league and traditionally accorded to the Head of State of Fiji. It is a source of guardianship and advocacy in what the Game stands for.
+                  As part of the wider International Rugby League community, the Fiji National Rugby League represents a new era for Rugby League for the millions who live and breathe the exhilaration of the Greatest Game of All.</h4>
+                        
+                  <h3 class="fw-bold">How the League Works</h3>
+                  <h4>The Objects of the FNRL Ltd are listed in its articles:
+            The primary objects of the League are to:
+            <br>
+            <br>1. Be the single controlling body and administrator of the Game;
+            <br>
+            <br>2. Foster, develop, extend and provide adequate funding for the Game from the junior to elite levels and generally to act in the best interests of the Game;
+            <br>
+            <br>3. Liaise with and delegate appropriate functions to governing bodies of the Game in the States and Zone/Regions of Fiji, including the East and West;
+            <br>
+            <br>4. Organise and conduct all Vanua State of Origin and Fijian Representative Games;
+            <br>
+            <br>5. Organise, conduct and foster the FNRL Premiership & Club Competitions;
+            <br>
+            <br>6. Organise, conduct and foster the Schools Competitions;
+            <br>
+            <br>7. Liaise with the International Rugby League Limited and organisations controlling the game in other countries in the fostering and control of the game of Rugby League throughout the world;
+            <br>
+            <br>8. Promote and encourage either directly or indirectly the physical, cultural and intellectual welfare of young people in the community and, in particular, the Rugby League community;
+            <br>
+            <br>9. Promote and encourage either directly or indirectly sport and recreation, particularly Rugby League football, in the interests of the social welfare of young persons. 
+            <br>
+            <br>All FNRL clubs and the East, West and Regional Rugby Leagues are members of the League.
+            Each club signs a participation agreement which allows it to compete in the Vodafone Premiership.
+            <br>
+            <br>The Board of Directors are appointed by the league and 2 Directors are appointed by affiliates.
+            The Directors are elected by Members and rotated on differing terms. Each Director must, at a nominated time, resign and may seek re-election.</h4>
+            </div>
+      </div>
+      <div class="col-md-4">
+            {% for category in three_categories %}
+            <h3 class="border-bottom pb-1 ml-4">{{category.title}} <a href="/category/{{category.id}}" class=" btn btn-sm btn-dark ml-4">More</a></h3>
+            <div class="row my-4 ml-3 mr-3">
+                  {% for news in category.news_set.all %}
+                        {% if forloop.counter < 5 %}
+                        <!-- News box -->
+                        <div class="col-md-3">
+                              <div class="card mb-3 shadow" style="height: 300px;">
+                                    <img src="/media/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+                                    <div class="card-body">
+                                          <h5 class="card-title">{{news.title}}</h5>
+                                          <hr/>
+                                          <p class="card-text"><a href="/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+                                    </div>
+                              </div>
+                        </div>
+                        {% endif %}
+                  {% endfor %}
+            </div>
+            {% endfor %}
+
+      </div>
+</div>
+{% endblock %}
+
+
+
+
+

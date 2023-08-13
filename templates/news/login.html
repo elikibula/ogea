@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div style="background-color: #000;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-11">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                                <div class="col-md-6 col-lg-5 d-none d-md-block" style="background-image: url('media/images/loginlogo.png'); background-repeat: no-repeat; background-position: center;">
+                                </div>                          
+                                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
+
+                                    <div class="d-flex align-items-center mb-3 pb-1">
+                                        <i class="fa-solid fa-anchor-lock fa-3x me-3" style="color: #ff6219;"></i>
+                                        <span class="h1 fw-bold mb-0">FNRL Login</span>
+                                    </div>
+
+                                    <form method="post" action="{% url 'profile' %}" class="crispy-forms-disabled">
+                                        {% csrf_token %}
+
+                                        <div class="form-outline mb-4">
+                                            {{ form.username|as_crispy_field }}
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            {{ form.password|as_crispy_field }}
+                                        </div>
+
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+
+                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="{% url 'account_signup' %}" style="color: #393f81;">Register here</a></p>
+
+                                        <p class="small text-muted">Forgot your password? <a href="{% url 'account_reset_password' %}" style="color: #393f81;">Reset it here</a></p>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content%}

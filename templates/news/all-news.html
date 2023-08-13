@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row my-3 ml-3">
+	<!-- Header Banner -->
+	<div class="col-md-12 mobile-hide">
+		<div class="card shadow mr-3 mobile-hide" style="background-color: #000000;">
+			<h3 class="ml-2" style="color: #F57E1F;">NEWS/</h>
+		</div>
+	</div>
+	<div class="row my-4">
+		{% for news in sorted_news %}
+		<div class="col-md-3">
+			<!-- News box -->
+			<a href="/detail/{{ news.id }}">
+			<div class="card shadow" style="background-color: black; color:#F57E1F; height: 300px; display: flex; flex-direction: column; border-radius: 10px; margin-bottom: 20px;">
+				<img src="/media/{{ news.image }}" class="card-img-top" style="object-fit: cover; height: 120px;" alt="{{ news.title }}">
+				<div class="card-body">
+					<h6 class="card-title" style="font-size: 12px;">{{ news.category.title }}</h6>
+					<h5 class="ml-2" style="color:#F57E1F; font-size: 14px;">{{ news.title }}</h5>
+					<h6 class="card-footer" style="position: absolute; bottom: 0; left: 0; right: 0; font-size: 12px;">{{ news.pub_date|timesince }} ago</h6>
+				</div>
+			</div>
+		</a>
+		</div>
+		{% endfor %}
+	
+	</div>
+	 
+</div>
+
+{% endblock %}

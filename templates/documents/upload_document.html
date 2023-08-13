@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row my-3 ml-4 mr-4">
+    <div class="col-md-12 mobile-hide">
+        <div class="card shadow mr-3 mobile-hide" style="background-color: #000000;">
+            <h3 class="ml-2" style="color: #F57E1F;">UPLOAD DOCUMENT</h3>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card mb-3 shadow pl-4 py-4 pr-4 mt-3" style="overflow-y: scroll; max-height: 90vh;">
+            <h4>Please Fill in this Form to upload a document</h4>
+            <form method="post" action="{% url 'documents:upload_document' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-dark">Upload Document</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

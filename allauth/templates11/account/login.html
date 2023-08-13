@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block content %}
+
+<div style="background-color: #000;">
+
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 mobile-hide">
+          <div class="card shadow mr-3 mobile-hide" style="background-color: #000000; font-family: Barlow;">
+            <h3 class="ml-2" style="color: #F57E1F;">PLEASE LOGIN/</h>
+          </div>
+        </div>
+          <div class="col col-xl-11">
+              <div class="card my-3" style="border-radius: 1rem;">
+                  <div class="row g-0">
+
+                          <div class="col-md-6 col-lg-5 d-none d-md-block my-3" style="background-image: url('/media/images/loginlogo.png'); background-repeat: no-repeat; background-position: center; background-size: contain;">
+                          </div>  
+
+                          <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                              <div class="card-body p-4 p-lg-5 text-black">
+
+                                  <div class="d-flex align-items-center mb-3 pb-1">
+                                      <i class="fa-solid fa-anchor-lock fa-3x me-3" style="color: #ff6219;"></i>
+                                      <span class="h1 fw-bold mb-0">FNRL Login</span>
+                                  </div>
+
+                                  {% get_providers as socialaccount_providers %}
+
+                                  {% if socialaccount_providers %}
+                                  <p>{% blocktrans with site.name as site_name %}Please sign in with one
+                                  of your existing third party accounts. Or, <a href="{{ account_signup }}">sign up</a>
+                                  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+                                  <div class="socialaccount_ballot">
+
+                                    <ul class="socialaccount_providers">
+                                      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                                    </ul>
+
+                                    <div class="login-or">{% trans 'or' %}</div>
+
+                                  </div>
+
+                                  {% include "socialaccount/snippets/login_extra.html" %}
+
+                                  {% else %}
+                                  <p>Please Login</p>
+                                  {% endif %}
+
+                                  <form class="login" method="POST" action="{% url 'account_login' %}">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                                    {% endif %}
+                                    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                                    <button class="primaryAction btn-dark" type="submit">{% trans "Sign In" %}</button>
+                                  </form>
+                              </div>
+                        </div>
+                  </div>
+              </div>
+          </div>
+      </div>  
+ 
+</div>
+{% endblock content %}

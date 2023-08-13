@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block content %}
+<div style="background-color: #21418a;">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col mobile-hide" style="width: 98vw;">
+      <div class="card shadow mr-3 mobile-hide" style="background-color: #000000; font-family: Barlow;">
+        <h3 class="ml-2" style="color: #F57E1F;">PLEASE LOGIN</h3>
+      </div>
+    </div>
+    <div class="col col-xl-11 d-flex justify-content-center align-items-center">
+      <div class="card my-3" style="border-radius: 1rem;">
+        <div class="row g-0">
+            <div class="col-md-6 col-lg-12 d-flex align-items-center">
+            <div class="card-body p-4 p-lg-5 text-black">
+              <div class="d-flex align-items-center mb-3 pb-1">
+                <i class="fa-solid fa-anchor-lock fa-3x me-3" style="color: #ff6219;"></i>
+                <span class="h1 fw-bold mb-0">Komiti Login</span>
+              </div>
+              <form class="login" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                <button class="primaryAction btn-dark" type="submit">{% trans "Sign In" %}</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
